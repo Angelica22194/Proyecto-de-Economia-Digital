@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHome - Electrodomésticos Premium</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo" onclick="showHome()">TechHome</div>
+                <button class="menu-toggle" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="nav" id="mainNav">
+                    <a href="#inicio" onclick="showHome()">Inicio</a>
+                    <a href="#productos" onclick="navigateTo('productos')">Productos</a>
+                    <a href="#ofertas" onclick="showOffersPage()">Ofertas</a>
+                    <a href="#contacto" onclick="navigateTo('contacto')">Contacto</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="icon-btn" onclick="openCart()">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="homeView">
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Tecnología que transforma tu hogar</h1>
+                    <p class="hero-subtitle">Descubre nuestra selección premium de electrodomésticos diseñados para elevar tu estilo de vida con innovación y calidad excepcional.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="navigateTo('productos')">Explorar productos</button>
+                        <button class="btn btn-secondary" onclick="showOffersPage()">Ver ofertas</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories" id="productos">
+            <div class="container">
+                <h2 class="section-title">Nuestras categorías</h2>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="showCategoryPage('electronica')">
+                        <div class="category-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Electrónica y Tecnología Personal">
+                        </div>
+                        <h3 class="category-name">Electrónica y Tecnología Personal</h3>
+                    </div>
+                    <div class="category-card" onclick="showCategoryPage('lineaBlanca')">
+                        <div class="category-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Linea Blanca">
+                        </div>
+                        <h3 class="category-name">Línea Blanca</h3>
+                    </div>
+                    <div class="category-card" onclick="showCategoryPage('pequeñosElectrodomesticos')">
+                        <div class="category-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Pequeños Electrodomésticos">
+                        </div>
+                        <h3 class="category-name">Pequeños Electrodomésticos</h3>
+                    </div>
+                    <div class="category-card" onclick="showCategoryPage('oficina')">
+                        <div class="category-image">
+                            <img src="/placeholder.svg?height=300&width=300" alt="Oficina y Productividad">
+                        </div>
+                        <h3 class="category-name">Oficina y Productividad</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Productos destacados</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="testimonial-content">
+                    <blockquote class="testimonial-quote">
+                        "Excelente calidad y servicio. Los mejores electrodomésticos que he comprado."
+                    </blockquote>
+                    <p class="testimonial-author">— María González</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Banner -->
+        <section class="promo-banner" id="ofertas">
+            <div class="container">
+                <div class="promo-content">
+                    <h2 class="promo-title">Ofertas exclusivas este mes</h2>
+                    <p class="promo-text">Hasta 30% de descuento en productos seleccionados. Renueva tu hogar con tecnología de última generación.</p>
+                    <button class="btn btn-light" onclick="showOffersPage()">Ver todas las ofertas</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter" id="contacto">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">Mantente informado</h2>
+                    <p class="newsletter-text">Recibe ofertas exclusivas, novedades y consejos directamente en tu correo.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                        <input type="email" placeholder="Tu correo electrónico" required class="newsletter-input">
+                        <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Added category view page -->
+    <div id="categoryView" class="page-view" style="display: none;">
+        <section class="page-header">
+            <div class="container">
+                <button class="btn-back" onclick="showHome()">← Volver al inicio</button>
+                <h1 class="page-title" id="categoryTitle">Categoría</h1>
+                <p class="page-subtitle" id="categorySubtitle">Explora todos nuestros productos</p>
+            </div>
+        </section>
+        <section class="page-content">
+            <div class="container">
+                <div class="products-grid" id="categoryProductsGrid">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Added offers view page -->
+    <div id="offersView" class="page-view" style="display: none;">
+        <section class="page-header">
+            <div class="container">
+                <button class="btn-back" onclick="showHome()">← Volver al inicio</button>
+                <h1 class="page-title">Ofertas Especiales</h1>
+                <p class="page-subtitle">Aprovecha nuestros descuentos exclusivos</p>
+            </div>
+        </section>
+        <section class="page-content">
+            <div class="container">
+                <div class="products-grid" id="offersProductsGrid">
+                    <!-- Products will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Added product detail view -->
+    <div id="productDetailView" class="page-view" style="display: none;">
+        <section class="page-header">
+            <div class="container">
+                <button class="btn-back" onclick="closeProductDetail()">← Volver</button>
+            </div>
+        </section>
+        <section class="product-detail">
+            <div class="container">
+                <div class="product-detail-grid">
+                    <div class="product-detail-gallery">
+                        <div class="gallery-main">
+                            <img id="mainProductImage" src="/placeholder.svg" alt="Producto">
+                        </div>
+                        <div class="gallery-thumbnails" id="galleryThumbnails">
+                            <!-- Thumbnails will be loaded by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="product-detail-info">
+                        <p class="product-detail-category" id="detailCategory"></p>
+                        <h1 class="product-detail-title" id="detailTitle"></h1>
+                        <div class="product-detail-price" id="detailPrice"></div>
+                        <div class="product-detail-description">
+                            <h3>Descripción</h3>
+                            <p id="detailDescription"></p>
+                        </div>
+                        <div class="product-detail-features">
+                            <h3>Características</h3>
+                            <ul id="detailFeatures"></ul>
+                        </div>
+                        <div class="product-detail-actions">
+                            <button class="btn btn-primary btn-large" onclick="addToCartFromDetail()">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3 class="footer-title">TechHome</h3>
+                    <p class="footer-text">Transformamos hogares con tecnología de vanguardia y electrodomésticos premium.</p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Productos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showCategoryPage('electronica')">Electrónica y Tecnología Personal</a></li>
+                        <li><a href="#" onclick="showCategoryPage('lineaBlanca')">Línea Blanca</a></li>
+                        <li><a href="#" onclick="showCategoryPage('pequeñosElectrodomesticos')">Pequeños Electrodomésticos</a></li>
+                        <li><a href="#" onclick="showCategoryPage('oficina')">Oficina y Productividad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showInfo('garantia')">Garantía</a></li>
+                        <li><a href="#" onclick="showInfo('envios')">Envíos</a></li>
+                        <li><a href="#" onclick="showInfo('devoluciones')">Devoluciones</a></li>
+                        <li><a href="#" onclick="showInfo('contacto')">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showInfo('privacidad')">Privacidad</a></li>
+                        <li><a href="#" onclick="showInfo('terminos')">Términos</a></li>
+                        <li><a href="#" onclick="showInfo('cookies')">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TechHome. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Carrito de compras</h3>
+                <button class="modal-close" onclick="closeCart()">&times;</button>
+            </div>
+            <div class="modal-body" id="cartItems">
+                <p class="empty-cart">Tu carrito está vacío</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeCart()">Seguir comprando</button>
+                <button class="btn btn-primary" onclick="checkout()">Finalizar compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
