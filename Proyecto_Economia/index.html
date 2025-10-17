@@ -33,21 +33,21 @@
     </header>
 
     <div id="homeView">
-        <!-- Hero Section -->
+         Hero Section 
         <section class="hero" id="inicio">
             <div class="container">
                 <div class="hero-content">
                     <h1 class="hero-title">Tecnología que transforma tu hogar</h1>
                     <p class="hero-subtitle">Descubre nuestra selección premium de electrodomésticos diseñados para elevar tu estilo de vida con innovación y calidad excepcional.</p>
                     <div class="hero-actions">
-                        <button class="btn btn-primary" onclick="navigateTo('productos')">Explorar productos</button>
+                        <button class="btn btn-primary" onclick="navigateTo('productos') ">Explorar productos</button>
                         <button class="btn btn-secondary" onclick="showOffersPage()">Ver ofertas</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        Categories Section
+         <!-- Categories Section  -->
         <section class="categories" id="productos">
             <div class="container">
                 <h2 class="section-title">Nuestras categorías</h2>
@@ -80,17 +80,17 @@
             </div>
         </section>
 
-        <!-- Featured Products -->
+         <!-- Featured Products  -->
         <section class="featured-products">
             <div class="container">
                 <h2 class="section-title">Productos destacados</h2>
                 <div class="products-grid" id="productsGrid">
-                    <!-- Products will be loaded by JavaScript -->
+                     Products will be loaded by JavaScript 
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials -->
+         <!-- Testimonials  -->
         <section class="testimonials">
             <div class="container">
                 <div class="testimonial-content">
@@ -102,7 +102,7 @@
             </div>
         </section>
 
-        <!-- Promo Banner -->
+         <!-- Promo Banner -->   
         <section class="promo-banner" id="ofertas">
             <div class="container">
                 <div class="promo-content">
@@ -113,7 +113,7 @@
             </div>
         </section>
 
-        <!-- Newsletter -->
+         <!-- Newsletter  -->
         <section class="newsletter" id="contacto">
             <div class="container">
                 <div class="newsletter-content">
@@ -128,7 +128,7 @@
         </section>
     </div>
 
-    <!-- Added category view page -->
+     <!-- Added category view page  -->
     <div id="categoryView" class="page-view" style="display: none;">
         <section class="page-header">
             <div class="container">
@@ -140,13 +140,13 @@
         <section class="page-content">
             <div class="container">
                 <div class="products-grid" id="categoryProductsGrid">
-                    <!-- Products will be loaded by JavaScript -->
+                     Products will be loaded by JavaScript 
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Added offers view page -->
+     <!-- Added offers view page  -->
     <div id="offersView" class="page-view" style="display: none;">
         <section class="page-header">
             <div class="container">
@@ -158,54 +158,13 @@
         <section class="page-content">
             <div class="container">
                 <div class="products-grid" id="offersProductsGrid">
-                    <!-- Products will be loaded by JavaScript -->
+                     Products will be loaded by JavaScript 
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Added product detail view -->
-    <div id="productDetailView" class="page-view" style="display: none;">
-        <section class="page-header">
-            <div class="container">
-                <button class="btn-back" onclick="closeProductDetail()">← Volver</button>
-            </div>
-        </section>
-        <section class="product-detail">
-            <div class="container">
-                <div class="product-detail-grid">
-                    <div class="product-detail-gallery">
-                        <div class="gallery-main">
-                            <img id="mainProductImage" src="/placeholder.svg" alt="Producto">
-                        </div>
-                        <div class="gallery-thumbnails" id="galleryThumbnails">
-                            <!-- Thumbnails will be loaded by JavaScript -->
-                        </div>
-                    </div>
-                    <div class="product-detail-info">
-                        <p class="product-detail-category" id="detailCategory"></p>
-                        <h1 class="product-detail-title" id="detailTitle"></h1>
-                        <div class="product-detail-price" id="detailPrice"></div>
-                        <div class="product-detail-description">
-                            <h3>Descripción</h3>
-                            <p id="detailDescription"></p>
-                        </div>
-                        <div class="product-detail-features">
-                            <h3>Características</h3>
-                            <ul id="detailFeatures"></ul>
-                        </div>
-                        <div class="product-detail-actions">
-                            <button class="btn btn-primary btn-large" onclick="addToCartFromDetail()">
-                                Agregar al carrito
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
+     <!-- Footer  -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -246,7 +205,7 @@
         </div>
     </footer>
 
-    <!-- Cart Modal -->
+     <!-- Cart Modal  -->
     <div class="modal" id="cartModal">
         <div class="modal-content">
             <div class="modal-header">
